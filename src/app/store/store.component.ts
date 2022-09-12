@@ -16,7 +16,7 @@ export class StoreComponent {
 
     constructor(private repository: ProductRepository,
         private cart: Cart,
-               private router: Router) { }
+        private router: Router) { }
     get products(): Product[] {
         let pageIndex = (this.selectedPage - 1) * this.productsPerPage
         return this.repository.getProducts(this.selectedCategory)
@@ -39,12 +39,6 @@ export class StoreComponent {
         this.productsPerPage = Number(newSize);
         this.changePage(1);
     }
-
-    // get pageNumbers(): number[] {
-    //     return Array(Math.ceil(this.repository
-    //         .getProducts(this.selectedCategory).length / this.productsPerPage))
-    //         .fill(0).map((x, i) => i + 1);
-    // }
 
     get pageCount(): number {
         return Math.ceil(this.repository

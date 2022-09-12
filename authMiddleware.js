@@ -11,7 +11,7 @@ const mappings = {
 
 function requiresAuth(method, url) {
   return (mappings[method.toLowerCase()] || [])
-    .find(p => url.starsWith(p)) !== undefined;
+    .find(p => url.startsWith(p)) !== undefined;
 }
 
 module.exports = function (req, res, next) {
